@@ -5,8 +5,8 @@ static int param_value = 0;
 static char *param_name = "default";
 
 // 在模块加载时，可以通过“insmod 模块名 参数名=参数值”来设置参数
-module_param(param_value, int, 0);
-module_param(param_name, charp, 0);
+module_param(param_value, int, S_IRUGO);
+module_param(param_name, charp, S_IRUGO);
 
 static int __init param_init(void)
 {

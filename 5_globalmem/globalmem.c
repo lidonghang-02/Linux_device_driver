@@ -259,7 +259,6 @@ static int __init globalmem_init(void)
     // 初始化globalmem_devp数组
     // globalmem_devp + i = globalmem_devp + i * sizeof(struct globalmem_dev)
     // C语言中，指针算术是自动根据指针指向的数据类型来调整的，不需要显示指出
-    globalmem_devp->cdev.owner = THIS_MODULE;
     for (i = 0; i < DEVICE_NUM; i++)
         globalmem_setup(globalmem_devp + i, i);
 
@@ -283,7 +282,7 @@ static void __exit globalmem_exit(void)
 
     kfree(globalmem_devp);
     unregister_chrdev_region(MKDEV(major, 0), DEVICE_NUM);
-    printk("globalmem module exit\n");
+    printk(KERN_INFO "globalmem module exit\n");
 }
 module_exit(globalmem_exit);
 
