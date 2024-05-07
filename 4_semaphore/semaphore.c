@@ -94,7 +94,7 @@ static ssize_t sem_write(struct file *filp, const char __user *buf, size_t size,
     struct sem_dev *dev = filp->private_data;
 
     if (p >= SEM_SIZE)
-        return 0;
+        return -ENOMEM;
     if (count > SEM_SIZE - p)
         count = SEM_SIZE - p;
 

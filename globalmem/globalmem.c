@@ -113,7 +113,7 @@ static ssize_t globalmem_write(struct file *filp, const char __user *buf, size_t
     struct globalmem_dev *dev = filp->private_data;
 
     if (p >= GLOBALMEM_SIZE)
-        return 0;
+        return -ENOMEM;
     if (count > GLOBALMEM_SIZE - p)
         count = GLOBALMEM_SIZE - p;
 
@@ -253,7 +253,7 @@ static int __init globalmem_init(void)
     if (IS_ERR(class))
     {
         printk(KERN_NOTICE "Error creating class for globalmem");
-        goto out_err_1;
+        goto out_err_2;
     }
 
     // 初始化globalmem_devp数组
@@ -264,6 +264,8 @@ static int __init globalmem_init(void)
 
     printk("globalmem module init\n");
     return 0;
+out_err_2:
+    kfree(globalmem_devp);
 out_err_1:
     unregister_chrdev_region(devno, DEVICE_NUM);
     return ret;
