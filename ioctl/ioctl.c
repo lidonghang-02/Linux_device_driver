@@ -229,7 +229,7 @@ static int __init ioctl_init(void)
     ioctl_cls = class_create(THIS_MODULE, "ioctl");
     if (IS_ERR(ioctl_cls))
     {
-        printk(KERN_NOTICE "Error creating class for ioctl");
+        printk(KERN_WARNING "Error creating class for ioctl");
         goto out_err_2;
     }
 
@@ -256,7 +256,7 @@ static int __init ioctl_init(void)
 #endif
     }
 
-    printk("ioctl module init\n");
+    printk(KERN_INFO "ioctl module init\n");
     return 0;
 out_err_2:
     kfree(ioctl_devp);

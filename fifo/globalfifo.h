@@ -1,0 +1,10 @@
+#ifndef _GLOBALFIFO_H_
+#define _GLOBALFIFO_H_
+
+#define GLOBALFIFO_MAGIC 'c'
+
+#define GLOBALFIFO_CLEAR _IO(GLOBALFIFO_MAGIC, 0)
+
+#define GLOBALFIFO_MAXNR 1
+
+#endif /* _GLOBALFIFO_H_ */
