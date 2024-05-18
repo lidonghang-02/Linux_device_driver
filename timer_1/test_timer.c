@@ -11,8 +11,8 @@ int main()
     int counter = 0;
     int old_counter = 0;
 
-    // 打开/dev/timer0设备文件
-    fd = open("/dev/timer0", O_RDONLY);
+    // 打开/dev/timer设备文件
+    fd = open("/dev/timer", O_RDONLY);
     if (fd != -1)
     {
         while (1)
@@ -20,7 +20,7 @@ int main()
             read(fd, &counter, sizeof(unsigned int));
             if (counter != old_counter)
             {
-                printf("/dev/timer0 :%d\n", counter);
+                printf("/dev/timer :%d\n", counter);
                 old_counter = counter;
             }
         }

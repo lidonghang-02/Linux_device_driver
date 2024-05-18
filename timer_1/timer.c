@@ -38,14 +38,14 @@ static void timer_handler(unsigned long data)
 static int timer_open(struct inode *inode, struct file *filp)
 {
     struct timer_dev *dev = container_of(inode->i_cdev, struct timer_dev, cdev);
-    // 初始化定时器
-    init_timer(&dev->second_timer);
     // 定时器到期后的处理函数
     dev->second_timer.function = &timer_handler;
     // 处理函数的参数
     dev->second_timer.data = (unsigned long)dev;
     // 设置定时器的到期时间
     dev->second_timer.expires = jiffies + HZ;
+    // 初始化定时器
+    init_timer(&dev->second_timer);
     add_timer(&dev->second_timer);
     // 初始化计数器，原子操作
     atomic_set(&dev->cnt, 0);
@@ -80,27 +80,6 @@ static const struct file_operations timer_fops = {
     .read = timer_read,
 };
 
-static void timer_setup(struct timer_dev *dev, int index)
-{
-    // 获取设备号
-    int err, devno = MKDEV(major, index);
-
-    cdev_init(&dev->cdev, &timer_fops);
-    dev->cdev.owner = THIS_MODULE;
-    err = cdev_add(&dev->cdev, devno, 1);
-    if (err)
-        printk(KERN_NOTICE "Error %d adding timer%d", err, index);
-    else
-    {
-
-        dev->class_dev = NULL;
-        dev->class_dev = device_create(class, NULL, devno, NULL, "timer%d", index);
-        if (IS_ERR(dev->class_dev))
-        {
-            printk(KERN_NOTICE "Error creating device for globalmem%d", index);
-        }
-    }
-}
 static int __init timer_init(void)
 {
     int devno = MKDEV(major, 0);
@@ -129,7 +108,20 @@ static int __init timer_init(void)
         goto out_err_1;
     }
 
-    timer_setup(timer_devp, 0);
+    cdev_init(&timer_devp->cdev, &timer_fops);
+    timer_devp->cdev.owner = THIS_MODULE;
+    ret = cdev_add(&timer_devp->cdev, devno, 1);
+    if (ret)
+    {
+        printk(KERN_NOTICE "Error %d adding timer%d", ret, 0);
+        goto out_err_1;
+    }
+
+    timer_devp->class_dev = device_create(class, NULL, devno, NULL, "timer");
+
+    if (IS_ERR(timer_devp->class_dev))
+        printk(KERN_NOTICE "Error creating device for timer");
+
     printk(KERN_INFO "timer module init\n");
     return 0;
 
