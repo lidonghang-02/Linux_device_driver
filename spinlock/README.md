@@ -1,6 +1,5 @@
-- 运行
+- 测试
 ```bash
-// 在root模式下
 make
 dmesg -C
 insmod spinlock.ko
