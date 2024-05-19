@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "*.c": "c",
-        "sched.h": "c",
-        "types.h": "c",
-        "version.h": "c"
-    }
-}
