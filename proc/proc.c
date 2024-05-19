@@ -6,7 +6,6 @@
 #include <linux/string.h>
 
 static char *str = "Hello, World!\n";
-module_param(str, charp, S_IRUGO);
 static int len;
 
 // seq
@@ -98,6 +97,8 @@ static void __exit proc_exit(void)
 
 module_init(proc_init);
 module_exit(proc_exit);
+
+module_param(str, charp, S_IRUGO);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("lidonghang-02");
