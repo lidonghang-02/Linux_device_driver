@@ -99,13 +99,19 @@ void cdev_init(struct cdev *cdev, struct file_operations *fops);
 ```
 用于初始化cdev结构体并与文件操作结构体关联起来。
 
-2. cdev_add()
+2. cdev_put()
+```c
+void cdev_put(struct cdev *cdev);
+```
+减少使用计数
+
+3. cdev_add()
 ```c
 int cdev_add(struct cdev *cdev, dev_t dev, unsigned count);
 ```
 用于动态申请一个cdev内存，并将设备号与cdev关联起来。其中count是设备号的数量。
 
-3. cdev_del
+1. cdev_del
 
 与cdev_add()相反，用于删除一个cdev
 

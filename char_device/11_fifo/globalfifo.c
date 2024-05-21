@@ -25,11 +25,11 @@ static int globalfifo_major = GLOBALFIFO_MAJOR;
 static int globalfifo_minor = GLOBALFIFO_MINOR;
 static int globalfifo_nr_devs = GLOBALFIFO_NR_DEVS;
 
-static struct class* globalfifo_cls;
+static struct class *globalfifo_cls;
 struct globalfifo_dev
 {
   struct cdev cdev;
-  struct device* class_dev;
+  struct device *class_dev;
   unsigned int len;
   unsigned char mem[GLOBALFIFO_SIZE];
 
@@ -38,25 +38,25 @@ struct globalfifo_dev
   wait_queue_head_t w_wq;
 };
 
-static struct globalfifo_dev* globalfifo_devp;
+static struct globalfifo_dev *globalfifo_devp;
 
-static int globalfifo_open_func(struct inode* inode, struct file* filp)
+static int globalfifo_open_func(struct inode *inode, struct file *filp)
 {
-  struct globalfifo_dev* dev = container_of(inode->i_cdev, struct globalfifo_dev, cdev);
+  struct globalfifo_dev *dev = container_of(inode->i_cdev, struct globalfifo_dev, cdev);
   filp->private_data = dev;
   printk(KERN_INFO "globalfifo_open\n");
   return 0;
 }
 
-static int globalfifo_release_func(struct inode* inode, struct file* filp)
+static int globalfifo_release_func(struct inode *inode, struct file *filp)
 {
   printk(KERN_INFO "globalfifo_release\n");
   return 0;
 }
 
-static ssize_t globalfifo_read_func(struct file* filp, char __user* buf, size_t count, loff_t* f_pos)
+static ssize_t globalfifo_read_func(struct file *filp, char __user *buf, size_t count, loff_t *f_pos)
 {
-  struct globalfifo_dev* dev = filp->private_data;
+  struct globalfifo_dev *dev = filp->private_data;
   int ret = 0;
   DECLARE_WAITQUEUE(wait, current);
   mutex_lock(&dev->mutex);
@@ -102,10 +102,10 @@ out_2:
   return ret;
 }
 
-static ssize_t globalfifo_write_func(struct file* filp, const char __user* buf, size_t count, loff_t* f_pos)
+static ssize_t globalfifo_write_func(struct file *filp, const char __user *buf, size_t count, loff_t *f_pos)
 {
   int ret = -ENOMEM;
-  struct globalfifo_dev* dev = filp->private_data;
+  struct globalfifo_dev *dev = filp->private_data;
   DECLARE_WAITQUEUE(wait, current);
 
   mutex_lock(&dev->mutex);
@@ -150,9 +150,9 @@ out_2:
   return ret;
 }
 
-static long globalfifo_ioctl_func(struct file* filp, unsigned int cmd, unsigned long arg)
+static long globalfifo_ioctl_func(struct file *filp, unsigned int cmd, unsigned long arg)
 {
-  struct globalfifo_dev* dev = filp->private_data;
+  struct globalfifo_dev *dev = filp->private_data;
   int ret = 0;
 
   // 检查幻数(返回值POSIX标准规定，也用-EINVAL)
@@ -163,9 +163,9 @@ static long globalfifo_ioctl_func(struct file* filp, unsigned int cmd, unsigned 
     return -ENOTTY;
   // 检查命令方向，并验证用户空间指针的访问权限。
   if (_IOC_DIR(cmd) & _IOC_READ)
-    ret = !access_ok(VERIFY_WRITE, (void __user*)arg, _IOC_SIZE(cmd));
+    ret = !access_ok(VERIFY_WRITE, (void __user *)arg, _IOC_SIZE(cmd));
   else if (_IOC_DIR(cmd) & _IOC_WRITE)
-    ret = !access_ok(VERIFY_READ, (void __user*)arg, _IOC_SIZE(cmd));
+    ret = !access_ok(VERIFY_READ, (void __user *)arg, _IOC_SIZE(cmd));
 
   if (ret)
     return -EFAULT;
@@ -185,13 +185,13 @@ static long globalfifo_ioctl_func(struct file* filp, unsigned int cmd, unsigned 
 }
 
 static const struct file_operations globalfifo_fops =
-{
-    .owner = THIS_MODULE,
-    .read = globalfifo_read_func,
-    .write = globalfifo_write_func,
-    .unlocked_ioctl = globalfifo_ioctl_func,
-    .open = globalfifo_open_func,
-    .release = globalfifo_release_func,
+    {
+        .owner = THIS_MODULE,
+        .read = globalfifo_read_func,
+        .write = globalfifo_write_func,
+        .unlocked_ioctl = globalfifo_ioctl_func,
+        .open = globalfifo_open_func,
+        .release = globalfifo_release_func,
 };
 
 static int __init globalfifo_init_module(void)
