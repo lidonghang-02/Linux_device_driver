@@ -44,6 +44,7 @@ static void hello_blk_request(struct request_queue *q)
             sector = bio->bi_iter.bi_sector;
             bio_for_each_segment(bvec, bio, iter)
             {
+                // 下面这个函数在新版内核中已经删除
                 buffer = __bio_kmap_atomic(bio, iter);
                 offset = sector * KERNEL_SECTOR_SIZE;
                 nbytes = (bio_cur_bytes(bio) >> 9) * KERNEL_SECTOR_SIZE;
