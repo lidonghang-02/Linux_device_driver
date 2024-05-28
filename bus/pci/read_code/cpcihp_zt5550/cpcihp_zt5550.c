@@ -190,7 +190,7 @@ static int zt5550_hc_check_irq(void *dev_id)
 	ret = 0;
 	if (dev_id == zt5550_hpc.dev_id)
 	{
-		reg = readb(csr_int_status);
+		reg = readbzt5550_hc_init_one(csr_int_status);
 		if (reg)
 			ret = 1;
 	}

@@ -1,12 +1,13 @@
 # Linux的I2C驱动
 
 ## 目录结构
-- drivers_i2c: 里面文件来源与Linux/drivers/i2c
+- kernel_i2c: 里面文件来源与Linux/drivers/i2c
 - read_code: 内核源码中实现的驱动实例，作为理解I2C的参考
 - my_i2c: 自己实现的I2C驱动实例
 
 ## I2C体系结构
 
+> 这部分内容是Linux内核实现的，我们需要实现的是具体I2C设备的驱动
 ```c
 ./drivers/i2c
 ├── algos 文件夹

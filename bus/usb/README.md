@@ -16,6 +16,7 @@ Linux USB分为主机控制器(Host Controller)和USB设备控制器(UDC)。所�
 上面这些结构体都可以在[ch9.h](./kernel_usb/ch9.h)中找到，这个文件位于`linux/include/uapi/linux/usb/`中找到
 
 层次示意图如下：
+
 ![USB层次图](./pic/USB层次图.png)
 
 ## 主机控制器驱动(HCD)
