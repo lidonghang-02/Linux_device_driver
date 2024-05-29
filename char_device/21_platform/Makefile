@@ -1,7 +1,7 @@
 KVERS = $(shell uname -r)
 
 # Kernel modules
-obj-m += platform.o platform-dev.o
+obj-m += platform-dev.o platform.o
 
 # Specify flags for the module compilation.
 EXTRA_CFLAGS=-g -O0

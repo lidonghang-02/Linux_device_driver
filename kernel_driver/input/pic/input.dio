@@ -1,0 +1,82 @@
+<mxfile host="65bd71144e">
+    <diagram id="tN3ykWxm8A8LB40Cs75j" name="第 1 页">
+        <mxGraphModel dx="1034" dy="529" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=1;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="70" width="520" height="370" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Linux输入子系统框架" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="80" width="220" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="endArrow=none;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="190" y="120" as="sourcePoint"/>
+                        <mxPoint x="710" y="120" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="8" value="" style="endArrow=none;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="190" y="180" as="sourcePoint"/>
+                        <mxPoint x="710" y="180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9" value="" style="endArrow=none;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="190" y="280" as="sourcePoint"/>
+                        <mxPoint x="710" y="280" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="" style="endArrow=none;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="190" y="360" as="sourcePoint"/>
+                        <mxPoint x="710" y="360" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="用户空间" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=0;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="140" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="输入事件处理层&lt;br&gt;input event handle" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="200" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="输入核心层&lt;br&gt;input core" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="310" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="设备驱动层&lt;br&gt;input driver" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="370" width="70" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="linux/drivers/input/input.c" style="ellipse;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="285" width="180" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="s3c2410.c" style="ellipse;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="294" y="370" width="76" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="usbmouse.c" style="ellipse;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="370" width="76" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="..." style="ellipse;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="370" width="76" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="Mouse Handler" style="ellipse;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="330" y="200" width="76" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Keyboard Handler" style="ellipse;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="200" width="76" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="..." style="ellipse;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="540" y="200" width="76" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="/dev/input/event0&lt;br&gt;/dev/input/event1" style="rounded=0;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="130" width="106" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="/dev/input/mouse0&lt;br&gt;/dev/input/mouse1" style="rounded=0;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="409.5" y="127.5" width="117" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="其他设备节点访问" style="rounded=0;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="130" width="120" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
