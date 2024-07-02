@@ -4,9 +4,7 @@
 
 PCI(外部设备互联)总线是有Intel推出的一种局部总线，作为一种通用的总线接口标准
 
-![基于PCI总线的计算机系统逻辑示意图](image.png)
-
-
+![基于PCI总线的计算机系统逻辑示意图](./pic/image.png)
 
 - PCI Host Bridge（PCI桥）：PCI Host Bridge是PCI总线的起始点，它连接主机系统的CPU和内存与PCI总线之间的桥接器。PCI主机桥负责管理和控制PCI总线，并提供对PCI设备的访问和配置功能。
 

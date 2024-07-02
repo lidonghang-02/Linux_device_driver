@@ -564,8 +564,8 @@ static struct usb_class_driver skel_class = {
 };
 
 // usb_interface表示USB设备的接口
-static int skel_probe(struct usb_interface *interface,
-					  const struct usb_device_id *id)
+static int(struct usb_interface *interface,
+		   const struct usb_device_id *id)
 {
 	struct usb_skel *dev;
 	// 接口

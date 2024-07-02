@@ -1,7 +1,7 @@
 /*
  * @Date: 2024-05-07 16:54:27
  * @author: lidonghang-02 2426971102@qq.com
- * @LastEditTime: 2024-05-19 19:54:51
+ * @LastEditTime: 2024-06-21 19:30:21
  */
 #include <stdio.h>
 #include <fcntl.h>
@@ -10,7 +10,7 @@
 #include <sys/ioctl.h>
 #include <errno.h>
 #include "ioctl.h"
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
   unsigned int n;
   int fd;

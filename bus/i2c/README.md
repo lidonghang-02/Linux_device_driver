@@ -25,14 +25,12 @@
 └── muxes 文件夹
 ```
 上面一些主要的文件功能：
-![Alt text](image.png)
 - algos 文件夹：I2C通信算法
 - busses 文件夹：I2C总线驱动相关的文件
 - i2c-boardinfo.c：I2C设备信息
 - i2c-core.c：实现I2C核心的功能
 - i2c-dev.c：实现了I2C适配器设备文件的功能，每一个I2C适配器都被分配一个设备。通过适配器访问设备时的主设备号都是89，次设备号为0～256。提供通用的`open()`、`write()`、`read()`、`ioctl()`和`close()`等接口。
 
-![i2c系统架构](image.png)
 
 ## 重要结构体
 

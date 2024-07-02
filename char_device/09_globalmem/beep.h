@@ -1,5 +1,5 @@
-#ifndef _PWM_H
-#define _PWM_H
+#ifndef _BEEP_H
+#define _BEEP_H
 
 #define DEV_FIFO_TYPE 'k'
 

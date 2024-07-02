@@ -1,11 +1,13 @@
 # SPI
 
 > SPI 驱动的框架与I2C类似，都是分为主机控制器驱动和设备驱动，我们需要实现的是具体设备的驱动，主机控制器的驱动由Linux内核实现，也需要了解
-## 目录
+
+
+## kenel_spi文件说明
 ```
-kernel-4.14/drivers/spi/spi.c  Linux 提供的通用接口封装层驱动
-kernel-4.14/drivers/spi/spidev.c  linux 提供的 SPI 通用设备驱动程序
-kernel-4.14/include/linux/spi/spi.h  linux 提供的包含 SPI 的主要数据结构和函数
+linux/drivers/spi/spi.c  Linux 提供的通用接口封装层驱动
+linux/drivers/spi/spidev.c  linux 提供的 SPI 通用设备驱动程序
+linux/include/linux/spi/spi.h  linux 提供的包含 SPI 的主要数据结构和函数
 ```
 
 ## SPI主机驱动
